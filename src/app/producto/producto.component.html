@@ -1,0 +1,85 @@
+<!-- 1).-datos erroneos mnsaje de error
+2).-no guardar productos con el mismo ID
+3).-validar todo los campos llenos
+4).-pie de pagina en la tabla donde muestra el total de Dinero -->
+
+<div class="container mt-5">
+    <div class="mb-4 titulo">
+        <h1 class="text-center">REGISTRO DE PRODUCTOS</h1>
+    </div>
+    <div class="row">
+            <!-- Imputs Prodcuto -->
+        <div class="col-md-4">
+            <div class="py-3 px-2 fondo-inputs">
+                    <!-- id -->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">ID</span>
+                        <input type="text" [(ngModel)]="producto.id" [disabled]="estado" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <!-- nombre -->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+                        <input type="text" [(ngModel)]="producto.nombre" class="form-control nombre" placeholder="Nombre del Producto" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <!-- precioUnitario -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Precio $</span>
+                        <input type="text" [(ngModel)]="producto.precioUnitario" class="form-control" placeholder="Precio del Prodcuto" aria-label="Amount (to the nearest dollar)">
+                    </div>
+                    <!-- iva -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">IVA %</span>
+                        <input type="text" [(ngModel)]="producto.iva" class="form-control" placeholder="Iva del Prodcuto" aria-label="Amount (to the nearest dollar)">
+                    </div>
+                    <!-- cantidad -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Cantidad #</span>
+                        <input type="text" [(ngModel)]="producto.cantidad" class="form-control" placeholder="Cantidad del Prodcuto" aria-label="Amount (to the nearest dollar)">
+                    </div>
+                    <!-- boton Guardar -->
+                    <div *ngIf="oculto == 0">
+                        <button class="btn btn-success" (click)="save(producto.id)"><i class="bi bi-cart-plus mx-2" style="font-size: 1.3rem;"></i>Guardar</button>
+                    </div>
+                    <div *ngIf="oculto == 1">
+                        <button class="btn btn-warning" (click)="save(producto.id)"><i class="bi bi-pencil-square mx-2" style="font-size: 1.3rem;"></i>Actualizar</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabla Prodcuto -->
+        <div class="col-md-8">
+            <div class="table-responsive-sm">
+                <table class="table table-warning table-hover">
+                    <thead class="table-dark">
+                      <tr>
+                        <th class="borde-top-left" scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio$</th>
+                        <th scope="col">IVA%</th>
+                        <th scope="col">Cantidad#</th>
+                        <th scope="col">Total$</th>
+                        <th scope="col">Eliminar</th>
+                        <th class="borde-top-right" scope="col">Actualizar</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let producto of productoGuardado; let i = index" class="table-group-divider" >
+                      <tr>
+                        <th scope="row">{{producto.id}}</th>
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.precioUnitario}} $</td>
+                        <td>{{producto.iva}} %</td>
+                        <td class="text-center">{{producto.cantidad}}</td>
+                        <td>{{producto.precioConIva}} $</td>
+                        <td class="text-center"><button class="btn btn-danger" (click)="delete(producto.id, producto.nombre)"><i class="bi bi-trash-fill"></i></button></td>
+                        <td class="text-center"><button class="btn btn-warning"  style="color: black;" (click)="upload(producto)"><i class="bi bi-pencil-fill"></i></button></td>
+                      </tr>
+                    </tbody>
+                    <tfoot class="table-dark">
+                        <tr>
+                            <td colspan="8" class="table-active borde-foot">Total de Ganancia= {{fullMoney}} $</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+
+<div class="container mb-5">
+<h1>Calculadora</h1>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+            <!-- numero1 -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 border border-3 boder-warning">
+                    <div class="input-group my-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">N°</span>
+                    <input
+                        type="text"
+                        [(ngModel)]='numeroConcatenado'
+                        class="form-control"
+                        aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default"
+                        placeholder="Ingrese el numero"
+                    />
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- botones -->
+            <div class="row d-flex justify-content-center">
+            <div class="col-md-4 border border-3 boder-warning">           
+                <button type="button" class="btn btn-primary mx-2 my-2"(click)="concatenarNumero(1)">1</button>
+                <button type="button" class="btn btn-primary mx-2 my-2"(click)="concatenarNumero(2)">2</button>
+                <button type="button" class="btn btn-primary mx-2 my-2"(click)="concatenarNumero(3)">3</button>
+                <button type="button" class="btn btn-primary mx-2 my-2"(click)="concatenarNumero(4)">4</button>
+                <button type="button" class="btn btn-primary mx-2 my-2"(click)="concatenarNumero(5)">5</button>
+                <button type="button" class="btn btn-primary mx-2 my-2"(click)="concatenarNumero(6)">6</button>
+                <button type="button" class="btn btn-primary mx-2 my-2"(click)="concatenarNumero(7)">7</button>
+                <button type="button" class="btn btn-primary mx-2 my-2"(click)="concatenarNumero(8)">8</button>
+                <button type="button" class="btn btn-primary mx-2 my-2"(click)="concatenarNumero(9)">9</button>
+                <button type="button" class="btn btn-primary mx-2 my-2"(click)="concatenarNumero(0)">0</button>                           
+                <button type="button" class="btn btn-primary mx-2 my-2"(click)="resultado()">RESULTADO</button>                           
+            </div>
+            <div class="col-md-2 border border-3 boder-warning">
+                <button type="button" class="btn btn-warning mx-2 my-2" (click)="calcular('+')">+</button>
+                <button type="button" class="btn btn-warning mx-2 my-2" (click)="calcular('-')">-</button>
+                <button type="button" class="btn btn-warning mx-2 my-2" (click)="calcular('*')">x</button>
+                <button type="button" class="btn btn-warning mx-2 my-2" (click)="calcular('√')">√</button>
+                <button type="button" class="btn btn-warning mx-2 my-2" (click)="calcular('/')">/</button>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+    
+

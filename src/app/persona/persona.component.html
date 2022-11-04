@@ -1,0 +1,110 @@
+<!-- <div class="container">
+    <h1>Mantenimiento Personas</h1>
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th scope="col">N°</th>
+          <th scope="col"><b>Nombre</b></th>
+          <th scope="col"><b>Apellido</b></th>
+          <th scope="col"><b>Edad</b></th>
+          <th scope="col"><b>Universisdad</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>José</td>
+          <td>Román</td>
+          <td>21</td>
+          <td>UCACUE</td>
+        </tr>
+      </tbody>
+    </table>
+</div> -->
+
+<!-- Persona -->
+
+<!-- <div class="container">
+  <h1>Personas</h1>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default" >Texto</span>
+        <input type="text" [(ngModel)]="nombre" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese un Texto">
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-warning mx-2" (mouseover)="generar()" [disabled]="estado">Generar</button>
+  <button class="btn btn-warning mx-2" (click)="clear()">Borrar</button>
+  <p>{{ nombre }}</p>
+</div> -->
+
+
+<div class="container">
+  <h1>Personas</h1>
+  <div class="alert alert-success" *ngIf="alerta == 1" role="alert">
+    Añadido Correctamente
+  </div>
+  <div class="alert alert-danger" *ngIf="alerta == 2" role="alert">
+    Eliminado Correctamente
+  </div>
+  <div class="alert alert-warning" *ngIf="alerta == 3" role="alert">
+    Actualizado Correctamente
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <!-- id -->
+        <!-- <label for="exampleFormControlInput1" class="form-label">ID</label>
+        <input type="text" [(ngModel)]="persona.id" class="form-control" id="exampleFormControlInput1" placeholder="ID"> -->
+        <!-- nombre -->
+        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+        <input type="text" [(ngModel)]="persona.nombre" class="form-control" id="exampleFormControlInput1" placeholder="Nombre">
+        <!-- apellido -->
+        <label for="exampleFormControlInput1" class="form-label">Apellido</label>
+        <input type="text" [(ngModel)]="persona.apellido" class="form-control" id="exampleFormControlInput1" placeholder="Apellido">
+        <!-- telefono -->
+        <label for="exampleFormControlInput1" class="form-label">Telefono</label>
+        <input type="text" [(ngModel)]="persona.telefono" class="form-control" id="exampleFormControlInput1" placeholder="Telefono">
+        <!-- email -->
+        <label for="exampleFormControlInput1" class="form-label">Emial</label>
+        <input type="text" [(ngModel)]="persona.correoElectronico" class="form-control" id="exampleFormControlInput1" placeholder="@Email">
+        <!-- cedula -->
+        <label for="exampleFormControlInput1" class="form-label">cedula</label>
+        <input type="text" [(ngModel)]="persona.cedula" class="form-control" id="exampleFormControlInput1" placeholder="@cedula">
+      </div>
+      <!-- boton -->
+      <button class="btn btn-primary mx-2" *ngIf="oculto == 1" (click)="guardar()">Enviar</button>
+      <button class="btn btn-warning" *ngIf="oculto == 2" (click)="update(persona.id)">Actualizar</button>
+    </div>
+    <div class="col-md-6">
+      <!-- tabla de registro -->
+      <table class="table table-info table-hover" *ngIf="personasGuardadas.length>0">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let persona of personasGuardadas">
+          <tr>
+            <th scope="row">{{[persona.id]}}</th>
+            <td>{{persona.nombre}}</td>
+            <td>{{persona.apellido}}</td>
+            <td>{{persona.telefono}}</td>
+            <td>{{persona.correoElectronico}}</td>
+            <button class="btn mx-2" (click)="delete(persona.id)">x</button>
+            <button class="btn" 
+            (click)="cargar(persona.id, persona.nombre, persona.apellido, persona.telefono, persona.correoElectronico)">+</button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> 
+

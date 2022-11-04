@@ -1,0 +1,59 @@
+<div class="container">
+    <h1>Calculadora</h1>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Numero 1</span>
+          <input  [(ngModel)]='num1' type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Numero 2</span>
+          <input [(ngModel)]='num2'  type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+      </div>
+    </div>
+
+    <div class="d-inline-flex">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">RESULTADO</span>
+        <input [(ngModel)]='respuesta'  type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+
+      <div class="mb-3">
+        <button type="button" class="btn btn-success mx-2" (click)="sumar()">+</button>
+        <button type="button" class="btn btn-primary mx-2" (click)="restar()">-</button>
+        <button type="button" class="btn btn-danger mx-2" (click)="multiplicar()">x</button>
+        <button type="button" class="btn btn-dark mx-2" (click)="dividir()">÷</button>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          √
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Raiz Cuadrada</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                </div>
+                <div class="modal-body">
+                Selecionar cual numero quieres obtener la raiz cuadrada
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="raiz1()">Numero 1</button>
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="raiz2()">Numero 2</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-info mx-5 mp-3" (click)="Limpiar()">Limpiar</button>
+      </div>
+</div>

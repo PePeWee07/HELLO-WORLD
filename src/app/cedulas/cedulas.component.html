@@ -1,0 +1,55 @@
+<div class="container mb-5">
+    <h1>Validación de Cedulas</h1>
+    0704713619
+    <!-- nombre y apellido -->
+    <div class="row" *ngIf="oculto == true">
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-text">Nombre y Apellido</span>
+                <input type="text" [(ngModel)]="nombre" aria-label="First name" class="form-control" placeholder="Ingrese el Nombre">
+                <input type="text" [(ngModel)]="apellido" aria-label="Last name" class="form-control" placeholder="Ingrese el Apellido">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group mb-3">
+                <input type="text" [(ngModel)]="cedula" maxlength="10" class="form-control" placeholder="Ingrese Numero de Cedula" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2">N° Cedula</span>
+            </div>
+        </div>
+        <!-- boton -->
+        <div>
+            <button class="btn btn-info mx-2" (click)="verificarCedula()">Verificar</button>
+        </div>
+    </div>
+
+    <!-- OCULTO -->
+    <div class="row mt-3" *ngIf="oculto == false">
+        <div class="col-md-6 mt-5 row align-items-center">
+            <!-- nombres completos -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nombres</span>
+                <input type="text" [(ngModel)]="nombrefull"class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <!-- provincia a que perenece -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">provincia</span>
+                <input type="text" [(ngModel)]="provincia" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="mb-2 d-flex justify-content-center">
+                <button class="btn btn-success" (click)="ok()">OK!</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="{{img}}" alt="bandera">
+        </div>
+        
+        <!-- alert -->
+        <div class="alert alert-success" *ngIf=" sinProvincia== 1" role="alert">
+            Verificada!
+        </div>
+        <!-- alert 2 -->
+        <div class="alert alert-danger" *ngIf=" sinProvincia== 2" role="alert">
+            Sospechosa!
+        </div>
+    </div>
+</div>
